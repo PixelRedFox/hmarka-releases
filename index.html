@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Islet: Dynamic Island для Windows</title>
+<title>Hmarka: Dynamic Island для Windows</title>
 <meta name="description" content="Острівець угорі екрана Windows: музика, таймери, календар, погода, буфер обміну, ШІ-чат і Claude Code в одному місці.">
-<meta property="og:title" content="Islet: Dynamic Island для Windows">
+<meta property="og:title" content="Hmarka: Dynamic Island для Windows">
 <meta property="og:description" content="Музика, таймери, календар, ШІ-чат і сповіщення в одному острові вгорі екрана.">
 <meta property="og:image" content="screenshots/home.png">
 <link rel="icon" type="image/png" href="icon.png">
@@ -104,6 +104,7 @@
   .hero h1 { font-size: clamp(40px, 5.4vw, 66px); }
   .hero h1 em { font-style: normal; color: var(--accent); }
   .hero p { font-size: 19px; margin-top: 22px; max-width: 34ch; }
+  .hero p.renamed { font-size: 15px; margin-top: 14px; color: var(--text-3); }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
   .shot {
     border-radius: var(--radius); overflow: hidden;
@@ -293,7 +294,7 @@
 
 <header>
   <nav class="wrap" aria-label="Головне меню">
-    <a class="brand" href="#"><img src="icon.png" alt="" width="30" height="30">Islet</a>
+    <a class="brand" href="#"><img src="icon.png" alt="" width="30" height="30">Hmarka</a>
     <div class="nav-links">
       <a href="#features">Можливості</a>
       <a href="#phone">Телефон</a>
@@ -310,13 +311,14 @@
       <div>
         <h1>Dynamic Island <em>для Windows</em></h1>
         <p>Музика з караоке, дзвінки й коди з телефона, запис екрана, календар, погода й ШІ-чат у маленькому острові вгорі екрана. Наведіть мишку, і він розкриється.</p>
+        <p class="renamed">Раніше називався Islet. Якщо він у вас стоїть, наступне оновлення запропонує перейти на Hmarka, а нотатки, буфер, коди й налаштування переїдуть самі.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#download"><i class="ph ph-windows-logo"></i>Завантажити для Windows</a>
           <a class="btn btn-ghost" href="#features">Що він вміє</a>
         </div>
       </div>
       <div class="shot hero-shot">
-        <img src="screenshots/home.png" width="1480" height="807" alt="Розгорнутий острів Islet: плеєр з обкладинкою, заряд телефона й ноутбука, керування Wi-Fi, Bluetooth і темою, гучність та інструменти екрана">
+        <img src="screenshots/home.png" width="1480" height="807" alt="Розгорнутий острів Hmarka: плеєр з обкладинкою, заряд телефона й ноутбука, керування Wi-Fi, Bluetooth і темою, гучність та інструменти екрана">
       </div>
     </div>
   </section>
@@ -417,7 +419,7 @@
         <article class="cell c-row reveal">
           <div class="cell-text">
             <h3><i class="ph ph-squares-four"></i>Ярлики й завантаження</h3>
-            <p>Унизу «Головної» — ваші програми, папки й файли: один клік відкриває їх. Поки щось завантажується з Chrome, Edge, Firefox чи Steam, на цьому місці видно файл, швидкість і скільки лишилось. Можна показувати завантаження під ярликами або зовсім без ярликів. Точний відсоток дає <a href="https://chromewebstore.google.com/detail/apfgmiaanfodddgogkoemahjmlmnfiio" target="_blank" rel="noopener">розширення Islet у Chrome Web Store</a>.</p>
+            <p>Унизу «Головної» — ваші програми, папки й файли: один клік відкриває їх. Поки щось завантажується з Chrome, Edge, Firefox чи Steam, на цьому місці видно файл, швидкість і скільки лишилось. Можна показувати завантаження під ярликами або зовсім без ярликів. Точний відсоток дає <a href="https://chromewebstore.google.com/detail/apfgmiaanfodddgogkoemahjmlmnfiio" target="_blank" rel="noopener">розширення Hmarka у Chrome Web Store</a>.</p>
           </div>
           <div class="row-img"><img src="screenshots/downloads.png" width="1480" height="771" alt="Смужка завантаження внизу розгорнутого острова" loading="lazy"></div>
         </article>
@@ -472,7 +474,7 @@
     <div class="wrap phone-grid">
       <div class="reveal">
         <h2>Телефон поруч, навіть коли він у кишені</h2>
-        <p>Islet працює разом із програмою Windows «Зв'язок зі смартфоном» для Android та iPhone.</p>
+        <p>Hmarka працює разом із програмою Windows «Зв'язок зі смартфоном» для Android та iPhone.</p>
         <ul class="phone-list">
           <li><i class="ph ph-phone-incoming"></i><span><strong>Дзвінки в острові.</strong> Хто дзвонить, видно одразу. Якщо дзвінки йдуть через Bluetooth, відповідайте кнопкою «Прийняти на ПК».</span></li>
           <li><i class="ph ph-password"></i><span><strong>Коди з SMS в одну кнопку.</strong> Острів сам знаходить код підтвердження в повідомленні й копіює його.</span></li>
@@ -576,14 +578,14 @@
     <div class="wrap">
       <div class="support-box reveal">
         <div>
-          <h2>Підтримати Islet</h2>
-          <p>Islet безкоштовний і без реклами. Якщо острів став вам у пригоді, підтримайте розробку внеском у банку monobank: це допомагає частіше випускати нові можливості.</p>
+          <h2>Підтримати Hmarka</h2>
+          <p>Hmarka безкоштовний і без реклами. Якщо острів став вам у пригоді, підтримайте розробку внеском у банку monobank: це допомагає частіше випускати нові можливості.</p>
           <p class="support-note">Наведіть камеру телефона на QR-код або натисніть на нього.</p>
         </div>
         <div class="support-qr">
           <a class="qr" href="https://send.monobank.ua/jar/22xHhqfHM4" target="_blank" rel="noopener"
-             aria-label="Відкрити банку monobank для підтримки Islet">
-            <img src="support-qr.svg" width="200" height="200" alt="QR-код банки monobank для підтримки Islet">
+             aria-label="Відкрити банку monobank для підтримки Hmarka">
+            <img src="support-qr.svg" width="200" height="200" alt="QR-код банки monobank для підтримки Hmarka">
           </a>
           <a class="btn btn-primary" href="https://send.monobank.ua/jar/22xHhqfHM4" target="_blank" rel="noopener">
             <i class="ph ph-heart"></i>Підтримати проєкт
@@ -597,15 +599,15 @@
     <div class="wrap">
       <div class="dl-box reveal">
         <div>
-          <h2>Завантажте Islet</h2>
+          <h2>Завантажте Hmarka</h2>
           <p>Безкоштовно. Для Windows 10 (версія 2004 і новіші) та Windows 11.</p>
-          <a class="btn btn-primary" id="dl" href="https://github.com/PixelRedFox/islet-releases/releases/latest/download/Islet-win-Setup.exe">
+          <a class="btn btn-primary" id="dl" href="https://github.com/PixelRedFox/hmarka-releases/releases/latest/download/Hmarka-x64-Setup.exe">
             <i class="ph ph-windows-logo"></i>Завантажити для Windows
           </a>
           <div class="dl-meta" id="dl-meta" aria-live="polite"></div>
         </div>
         <ol class="steps">
-          <li><span>Запустіть <strong>Islet-win-Setup.exe</strong>. Права адміністратора не потрібні.</span></li>
+          <li><span>Запустіть <strong>Hmarka-x64-Setup.exe</strong>. Права адміністратора не потрібні.</span></li>
           <li><span>Якщо Windows покаже «Windows захистив ваш ПК», натисніть <strong>Докладніше</strong>, потім <strong>Виконати все одно</strong>. Так буває з новими програмами без платного сертифіката.</span></li>
           <li><span>Якщо на ПК немає .NET 8, інсталятор докачає його сам. Острів з'явиться вгорі екрана й запускатиметься разом з Windows.</span></li>
         </ol>
@@ -616,12 +618,12 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Islet</span>
+    <span>© 2026 Hmarka</span>
     <div class="right">
-      <a href="https://github.com/PixelRedFox/islet-releases/releases">Усі версії</a>
+      <a href="https://github.com/PixelRedFox/hmarka-releases/releases">Усі версії</a>
       <a href="#support">Підтримати</a>
       <a href="privacy.html">Конфіденційність</a>
-      <a href="mailto:ruslanstepenko@gmail.com?subject=Islet">Написати автору</a>
+      <a href="mailto:ruslanstepenko@gmail.com?subject=Hmarka">Написати автору</a>
     </div>
   </div>
 </footer>
@@ -641,10 +643,10 @@
   (async () => {
     const meta = document.getElementById('dl-meta');
     try {
-      const r = await fetch('https://api.github.com/repos/PixelRedFox/islet-releases/releases/latest');
+      const r = await fetch('https://api.github.com/repos/PixelRedFox/hmarka-releases/releases/latest');
       if (!r.ok) throw new Error(r.status);
       const rel = await r.json();
-      const setup = rel.assets.find(a => a.name.endsWith('Setup.exe'));
+      const setup = rel.assets.find(a => a.name.startsWith('Hmarka') && a.name.endsWith('Setup.exe'));
       const date = new Date(rel.published_at).toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' });
       meta.textContent = `Версія ${rel.tag_name.replace(/^v/, '')}, ${date}` + (setup ? `, ${(setup.size / 1048576).toFixed(1).replace('.', ',')} МБ` : '');
       if (setup) document.getElementById('dl').href = setup.browser_download_url;

@@ -233,6 +233,9 @@
   .dl-box p { margin-top: 16px; }
   .dl-meta { margin-top: 18px; color: var(--text-3); font-size: 15px; min-height: 1.6em; }
   .dl-box .btn { margin-top: 30px; padding: 16px 28px; font-size: 17px; }
+  .dl-ext { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: var(--text-3); font-size: 15px; }
+  .dl-ext span { flex-basis: 100%; }
+  .dl-box .dl-ext .btn { margin-top: 0; padding: 10px 18px; font-size: 15px; }
   .steps { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; counter-reset: s; }
   .steps li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: start; color: var(--text-2); font-size: 15.5px; }
   .steps li::before {
@@ -419,7 +422,7 @@
         <article class="cell c-row reveal">
           <div class="cell-text">
             <h3><i class="ph ph-squares-four"></i>Ярлики й завантаження</h3>
-            <p>Унизу «Головної» — ваші програми, папки й файли: один клік відкриває їх. Поки щось завантажується з Chrome, Edge, Firefox чи Steam, на цьому місці видно файл, швидкість і скільки лишилось. Можна показувати завантаження під ярликами або зовсім без ярликів. Точний відсоток дає <a href="https://chromewebstore.google.com/detail/apfgmiaanfodddgogkoemahjmlmnfiio" target="_blank" rel="noopener">розширення Hmarka у Chrome Web Store</a>.</p>
+            <p>Унизу «Головної» — ваші програми, папки й файли: один клік відкриває їх. Поки щось завантажується з Chrome, Edge, Firefox чи Steam, на цьому місці видно файл, швидкість і скільки лишилось. Можна показувати завантаження під ярликами або зовсім без ярликів. Точний відсоток дає розширення Hmarka для <a href="https://chromewebstore.google.com/detail/apfgmiaanfodddgogkoemahjmlmnfiio" target="_blank" rel="noopener">Chrome, Edge й інших</a> та <a href="https://addons.mozilla.org/uk/firefox/addon/hmarka-download/" target="_blank" rel="noopener">Firefox</a>.</p>
           </div>
           <div class="row-img"><img src="screenshots/downloads.png" width="1480" height="771" alt="Смужка завантаження внизу розгорнутого острова" loading="lazy"></div>
         </article>
@@ -605,6 +608,11 @@
             <i class="ph ph-windows-logo"></i>Завантажити для Windows
           </a>
           <div class="dl-meta" id="dl-meta" aria-live="polite"></div>
+          <div class="dl-ext">
+            <span>Розширення для точного відсотка завантажень:</span>
+            <a class="btn btn-ghost" href="https://chromewebstore.google.com/detail/apfgmiaanfodddgogkoemahjmlmnfiio" target="_blank" rel="noopener"><i class="ph ph-google-chrome-logo"></i>Chrome, Edge</a>
+            <a class="btn btn-ghost" href="https://addons.mozilla.org/uk/firefox/addon/hmarka-download/" target="_blank" rel="noopener"><i class="ph ph-browser"></i>Firefox</a>
+          </div>
         </div>
         <ol class="steps">
           <li><span>Запустіть <strong>Hmarka-x64-Setup.exe</strong>. Права адміністратора не потрібні.</span></li>
@@ -639,16 +647,21 @@
     items.forEach(el => io.observe(el));
   })();
 
-  // latest version and installer size from GitHub (the button works without this too)
+  // latest version, installer size and how many times Hmarka was downloaded, from GitHub (the button works without this too)
   (async () => {
     const meta = document.getElementById('dl-meta');
+    const times = n => { const d = n % 10, h = n % 100; return d === 1 && h !== 11 ? 'раз' : d >= 2 && d <= 4 && (h < 12 || h > 14) ? 'рази' : 'разів'; };
     try {
-      const r = await fetch('https://api.github.com/repos/PixelRedFox/hmarka-releases/releases/latest');
+      const r = await fetch('https://api.github.com/repos/PixelRedFox/hmarka-releases/releases?per_page=100');
       if (!r.ok) throw new Error(r.status);
-      const rel = await r.json();
+      const all = (await r.json()).filter(x => !x.draft);
+      const rel = all.find(x => !x.prerelease) || all[0];
       const setup = rel.assets.find(a => a.name.startsWith('Hmarka') && a.name.endsWith('Setup.exe'));
       const date = new Date(rel.published_at).toLocaleDateString('uk-UA', { day: 'numeric', month: 'long', year: 'numeric' });
-      meta.textContent = `Версія ${rel.tag_name.replace(/^v/, '')}, ${date}` + (setup ? `, ${(setup.size / 1048576).toFixed(1).replace('.', ',')} МБ` : '');
+      // installers and portable copies of every version, Islet's included; updates don't count
+      const downloads = all.flatMap(x => x.assets).filter(a => /(Setup\.exe|Portable\.zip)$/.test(a.name)).reduce((n, a) => n + a.download_count, 0);
+      meta.textContent = `Версія ${rel.tag_name.replace(/^v/, '')}, ${date}` + (setup ? `, ${(setup.size / 1048576).toFixed(1).replace('.', ',')} МБ` : '')
+        + (downloads > 0 ? ` · завантажено ${downloads.toLocaleString('uk-UA')} ${times(downloads)}` : '');
       if (setup) document.getElementById('dl').href = setup.browser_download_url;
     } catch {
       meta.textContent = 'Остання версія з GitHub';

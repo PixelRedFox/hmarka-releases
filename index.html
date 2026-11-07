@@ -249,7 +249,8 @@
   footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; }
   footer a { color: var(--text-2); text-decoration: none; }
   footer a:hover { color: var(--text); }
-  footer .right { margin-left: auto; display: flex; gap: 24px; }
+  footer .right { margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px 24px; }
+  footer .right a { white-space: nowrap; }
 
   /* ---------- motion: reveal on scroll (content stays visible without JS) ---------- */
   @media (prefers-reduced-motion: no-preference) {
@@ -284,7 +285,7 @@
     .split .shots { order: 2; }
     .facts { grid-template-columns: 1fr 1fr; gap: 28px; }
     .dl-box { padding: 36px 22px; }
-    footer .right { margin-left: 0; }
+    footer .right { margin-left: 0; width: 100%; gap: 12px 22px; }
   }
   @media (max-width: 520px) {
     .facts { grid-template-columns: 1fr; }
